@@ -2,6 +2,6 @@
 {
     public class ProductsListVm
     {
-        public IList<ProductDto>? Products { get; set; }
+        public IList<ProductDto> Products { get; set; }
     }
 }
