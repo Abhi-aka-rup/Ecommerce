@@ -13,17 +13,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{AADA84D3-A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{53527F48-A1BC-4A9C-834A-5032177CF9FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Products\Src\Core\Application\Application.csproj", "{26D5FFBA-EDEC-48FF-9DCB-84B57469C988}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Products\Src\Core\Application\Application.csproj", "{26D5FFBA-EDEC-48FF-9DCB-84B57469C988}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Products\Src\Core\Common\Common.csproj", "{A26BF4A0-4E49-4EA9-B8BA-FA123BCFFFB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Products\Src\Core\Common\Common.csproj", "{A26BF4A0-4E49-4EA9-B8BA-FA123BCFFFB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Products\Src\Core\Domain\Domain.csproj", "{FF057BD6-5712-4EBB-8FD8-877CE37FA2F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Products\Src\Core\Domain\Domain.csproj", "{FF057BD6-5712-4EBB-8FD8-877CE37FA2F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Products\Src\Infrastructure\Infrastructure\Infrastructure.csproj", "{6EF62E35-6BAC-44F3-91F6-49E2BA32B4CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Products\Src\Infrastructure\Infrastructure\Infrastructure.csproj", "{6EF62E35-6BAC-44F3-91F6-49E2BA32B4CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence", "Products\Src\Infrastructure\Persistence\Persistence.csproj", "{45413337-F7C2-4E16-9D90-2430CA33D9D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "Products\Src\Infrastructure\Persistence\Persistence.csproj", "{45413337-F7C2-4E16-9D90-2430CA33D9D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Products.API", "Products\Src\Products.API\Products.API.csproj", "{8019ED07-BF91-41DC-9B10-3CF62D8273EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Products.API", "Products\Src\Products.API\Products.API.csproj", "{8019ED07-BF91-41DC-9B10-3CF62D8273EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
