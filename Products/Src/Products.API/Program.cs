@@ -1,8 +1,12 @@
 using Application;
 using Infrastructure;
 using Persistence;
+using FluentValidation.AspNetCore;
+using Application.Common.Interfaces;
+using FluentValidation;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Configuration.AddEnvironmentVariables();
 
 // Add services to the container.
 
@@ -13,6 +17,10 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddPersistence(builder.Configuration);
 builder.Services.AddApplication();
+
+builder.Services
+    .AddValidatorsFromAssemblyContaining<IProductDbContext>()
+    .AddFluentValidationAutoValidation();
 
 var app = builder.Build();
 
