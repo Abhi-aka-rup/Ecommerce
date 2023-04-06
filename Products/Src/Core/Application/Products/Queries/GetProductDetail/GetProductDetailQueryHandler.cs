@@ -23,8 +23,8 @@ namespace Application.Products.Queries.GetProductDetail
         {
             var vm = await _context.Products
                 .ProjectTo<ProductDetailVm>(_mapper.ConfigurationProvider)
-                .FirstOrDefaultAsync(p => p.ProductId == request.Id, cancellationToken) ??
-                throw new NotFoundException(nameof(Product), request.Id);
+                .FirstOrDefaultAsync(p => p.ProductId == request.ProductId, cancellationToken) ??
+                throw new NotFoundException(nameof(Product), request.ProductId);
 
             return vm;
         }

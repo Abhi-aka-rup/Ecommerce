@@ -4,8 +4,10 @@ using Persistence;
 using FluentValidation.AspNetCore;
 using Application.Common.Interfaces;
 using FluentValidation;
+using Products.API.Common;
 
 var builder = WebApplication.CreateBuilder(args);
+
 builder.Configuration.AddEnvironmentVariables();
 
 // Add services to the container.
@@ -30,6 +32,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCustomExceptionHandler();
 
 app.UseHttpsRedirection();
 
