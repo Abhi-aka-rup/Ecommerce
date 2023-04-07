@@ -8,7 +8,7 @@ namespace Application.Common.Behaviours
     {
         private readonly ILogger _logger;
 
-        public RequestLogger(ILogger logger)
+        public RequestLogger(ILogger<RequestLogger<TRequest>> logger)
         {
             _logger = logger;
         }

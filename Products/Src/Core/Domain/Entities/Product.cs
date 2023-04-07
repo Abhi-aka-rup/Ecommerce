@@ -1,6 +1,8 @@
-﻿namespace Domain.Entities
+﻿using Domain.Common;
+
+namespace Domain.Entities
 {
-    public class Product
+    public class Product : AuditableEntity
     {
         public int ProductId { get; set; }
 

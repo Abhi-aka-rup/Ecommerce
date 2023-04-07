@@ -6,7 +6,6 @@ namespace Application.Products.Commands.UpdateProduct
     {
         public UpdateProductCommandValidator()
         {
-            RuleFor(p => p.ProductId).NotEmpty();
             RuleFor(p => p.ProductName).NotEmpty();
         }
     }

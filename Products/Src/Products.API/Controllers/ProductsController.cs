@@ -40,8 +40,9 @@ namespace Products.API.Controllers
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> Update([FromBody] UpdateProductCommand command)
+        public async Task<IActionResult> Update(int id, [FromBody] UpdateProductCommand command)
         {
+            command.SetProductId(id);
             await Mediator.Send(command);
 
             return NoContent();
