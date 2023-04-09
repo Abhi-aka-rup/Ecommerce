@@ -1,7 +1,7 @@
 ﻿using MediatR.Pipeline;
 using Microsoft.Extensions.Logging;
 
-namespace Application.Common.Behaviours
+namespace Common.Behaviours
 {
     public class RequestLogger<TRequest> : IRequestPreProcessor<TRequest>
         where TRequest : notnull
@@ -17,7 +17,7 @@ namespace Application.Common.Behaviours
         {
             var name = typeof(TRequest).Name;
 
-            _logger.LogInformation("Product Request: {Name} {@Request}", name, request);
+            _logger.LogInformation("Request: {Name} {@Request}", name, request);
 
             return Task.CompletedTask;
         }

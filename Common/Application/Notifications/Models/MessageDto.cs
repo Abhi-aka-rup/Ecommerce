@@ -1,4 +1,4 @@
-﻿namespace Application.Notifications.Models
+﻿namespace Common.Notifications.Models
 {
     public class MessageDto
     {

@@ -1,6 +1,6 @@
-﻿using Application.Notifications.Models;
+﻿using Common.Notifications.Models;
 
-namespace Application.Common.Interfaces
+namespace Common.Interfaces
 {
     public interface INotificationService
     {

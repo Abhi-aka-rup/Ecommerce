@@ -1,4 +1,4 @@
-﻿using Application.Common.Behaviours;
+﻿using Common.Behaviours;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;

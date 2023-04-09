@@ -1,4 +1,4 @@
-﻿using Application.Common.Exceptions;
+﻿using Common.Exceptions;
 using Newtonsoft.Json;
 using System.Net;
 

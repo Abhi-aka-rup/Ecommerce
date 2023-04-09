@@ -1,5 +1,4 @@
-﻿using Common;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace Persistence
 {

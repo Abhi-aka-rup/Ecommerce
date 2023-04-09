@@ -1,5 +1,5 @@
-﻿using Application.Common.Interfaces;
-using Application.Notifications.Models;
+﻿using Common.Interfaces;
+using Common.Notifications.Models;
 using MediatR;
 
 namespace Application.Products.Commands.CreateProduct
