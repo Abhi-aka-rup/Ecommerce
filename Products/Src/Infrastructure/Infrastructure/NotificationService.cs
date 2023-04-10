@@ -1,7 +1,7 @@
 ﻿using Common.Interfaces;
 using Common.Notifications.Models;
 
-namespace Infrastructure
+namespace Products.Infrastructure
 {
     public class NotificationService : INotificationService
     {

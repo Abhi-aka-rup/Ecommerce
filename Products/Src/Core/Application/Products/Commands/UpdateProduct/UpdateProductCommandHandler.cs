@@ -1,9 +1,9 @@
-﻿using Application.Common.Interfaces;
+﻿using Products.Application.Common.Interfaces;
 using Common.Exceptions;
-using Domain.Entities;
+using Products.Domain.Entities;
 using MediatR;
 
-namespace Application.Products.Commands.UpdateProduct
+namespace Products.Application.Commands.UpdateProduct
 {
     public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand, Unit>
     {

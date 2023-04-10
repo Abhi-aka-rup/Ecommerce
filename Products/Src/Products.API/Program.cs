@@ -1,8 +1,8 @@
-using Application;
-using Infrastructure;
-using Persistence;
+using Products.Application;
+using Products.Infrastructure;
+using Products.Persistence;
 using FluentValidation.AspNetCore;
-using Application.Common.Interfaces;
+using Products.Application.Common.Interfaces;
 using FluentValidation;
 using Products.API.Common;
 using Microsoft.EntityFrameworkCore;

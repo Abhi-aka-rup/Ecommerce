@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace Application.Products.Commands.UpdateProduct
+namespace Products.Application.Commands.UpdateProduct
 {
     public class UpdateProductCommand : IRequest<Unit>
     {

@@ -1,10 +1,10 @@
-﻿using Application.Common.Interfaces;
+﻿using Products.Application.Common.Interfaces;
 using Common.Domain;
 using Common.Interfaces;
-using Domain.Entities;
+using Products.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Persistence
+namespace Products.Persistence
 {
     public class ProductDbContext : DbContext, IProductDbContext
     {

@@ -1,9 +1,9 @@
-﻿using Application.Common.Interfaces;
+﻿using Products.Application.Common.Interfaces;
 using Common.Exceptions;
-using Domain.Entities;
+using Products.Domain.Entities;
 using MediatR;
 
-namespace Application.Products.Commands.DeleteProduct
+namespace Products.Application.Commands.DeleteProduct
 {
     public class DeleteProductCommandHandler : IRequestHandler<DeleteProductCommand, Unit>
     {

@@ -1,8 +1,8 @@
-﻿using Application.Common.Interfaces;
-using Domain.Entities;
+﻿using Products.Application.Common.Interfaces;
+using Products.Domain.Entities;
 using MediatR;
 
-namespace Application.Products.Commands.CreateProduct
+namespace Products.Application.Commands.CreateProduct
 {
     public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, int>
     {
