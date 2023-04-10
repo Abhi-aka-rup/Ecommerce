@@ -1,8 +1,8 @@
-﻿using Products.Application.Commands.CreateProduct;
-using Products.Application.Commands.DeleteProduct;
-using Products.Application.Commands.UpdateProduct;
-using Products.Application.Queries.GetProductDetail;
-using Products.Application.Queries.GetProductList;
+﻿using ProductsAPI.Application.Products.Commands.CreateProduct;
+using ProductsAPI.Application.Products.Commands.DeleteProduct;
+using ProductsAPI.Application.Products.Commands.UpdateProduct;
+using ProductsAPI.Application.Products.Queries.GetProductDetail;
+using ProductsAPI.Application.Products.Queries.GetProductList;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Products.API.Controllers

@@ -1,8 +1,8 @@
 ﻿using Common.Mappings;
 using AutoMapper;
-using Products.Domain.Entities;
+using ProductsAPI.Domain.Entities;
 
-namespace Products.Application.Queries.GetProductDetail
+namespace ProductsAPI.Application.Products.Queries.GetProductDetail
 {
     public class ProductDetailVm : IMapFrom<Product>
     {

@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace Products.Application.Queries.GetProductDetail
+namespace ProductsAPI.Application.Products.Queries.GetProductDetail
 {
     public class GetProductDetailQuery : IRequest<ProductDetailVm>
     {

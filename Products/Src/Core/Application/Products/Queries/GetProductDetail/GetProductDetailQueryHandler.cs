@@ -1,12 +1,12 @@
 ﻿using Common.Exceptions;
-using Products.Application.Common.Interfaces;
+using ProductsAPI.Application.Common.Interfaces;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using Products.Domain.Entities;
+using ProductsAPI.Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace Products.Application.Queries.GetProductDetail
+namespace ProductsAPI.Application.Products.Queries.GetProductDetail
 {
     public class GetProductDetailQueryHandler : IRequestHandler<GetProductDetailQuery, ProductDetailVm>
     {

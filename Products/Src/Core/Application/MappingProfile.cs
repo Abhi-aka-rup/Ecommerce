@@ -2,7 +2,7 @@
 using Common.Mappings;
 using System.Reflection;
 
-namespace Products.Application
+namespace ProductsAPI.Application
 {
     public class MappingProfile : Profile
     {

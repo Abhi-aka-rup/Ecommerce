@@ -1,7 +1,7 @@
-﻿using Products.Domain.Entities;
+﻿using ProductsAPI.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Products.Application.Common.Interfaces
+namespace ProductsAPI.Application.Common.Interfaces
 {
     public interface IProductDbContext
     {

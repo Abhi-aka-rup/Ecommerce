@@ -1,9 +1,9 @@
-﻿using Products.Application.Common.Interfaces;
+﻿using ProductsAPI.Application.Common.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Products.Persistence
+namespace ProductsAPI.Persistence
 {
     public static class DependencyInjection
     {

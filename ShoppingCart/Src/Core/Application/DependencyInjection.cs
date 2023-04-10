@@ -3,7 +3,7 @@ using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
-namespace ProductsAPI.Application
+namespace ShoppingCartAPI.Application
 {
     public static class DependencyInjection
     {

@@ -1,10 +1,10 @@
-﻿using Products.Application.Common.Interfaces;
+﻿using ProductsAPI.Application.Common.Interfaces;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace Products.Application.Queries.GetProductList
+namespace ProductsAPI.Application.Products.Queries.GetProductList
 {
     public class GetProductListQueryHandler : IRequestHandler<GetProductListQuery, ProductsListVm>
     {

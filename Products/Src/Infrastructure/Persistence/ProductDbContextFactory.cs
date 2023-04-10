@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace Products.Persistence
+namespace ProductsAPI.Persistence
 {
     public class ProductDbContextFactory : DesignTimeDbContextFactoryBase<ProductDbContext>
     {

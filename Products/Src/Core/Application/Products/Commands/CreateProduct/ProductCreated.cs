@@ -2,7 +2,7 @@
 using Common.Notifications.Models;
 using MediatR;
 
-namespace Products.Application.Commands.CreateProduct
+namespace ProductsAPI.Application.Products.Commands.CreateProduct
 {
     public class ProductCreated : INotification
     {

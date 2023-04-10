@@ -10,15 +10,19 @@
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="FluentValidation" Version="11.5.2" />
     <PackageReference Include="MediatR" Version="12.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.4" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Common\Interfaces\" />
+    <ProjectReference Include="..\..\..\..\Common\Common.csproj" />
+    <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Common\Common.csproj" />
+    <Folder Include="ShoppingCart\Commands\DeleteShoppingCart\" />
+    <Folder Include="ShoppingCart\Commands\UpdateShoppingCart\" />
+    <Folder Include="ShoppingCart\Queries\GetShoppingCartDetail\" />
   </ItemGroup>
 
 </Project>

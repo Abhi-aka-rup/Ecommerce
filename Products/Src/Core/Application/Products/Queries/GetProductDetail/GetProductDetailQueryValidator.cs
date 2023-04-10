@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace Products.Application.Queries.GetProductDetail
+namespace ProductsAPI.Application.Products.Queries.GetProductDetail
 {
     public class GetProductDetailQueryValidator : AbstractValidator<GetProductDetailQuery>
     {

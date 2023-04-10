@@ -1,7 +1,7 @@
 ﻿using Common.Interfaces;
 using Common.Notifications.Models;
 
-namespace Infrastructure
+namespace ShoppingCartAPI.Infrastructure
 {
     public class NotificationService : INotificationService
     {

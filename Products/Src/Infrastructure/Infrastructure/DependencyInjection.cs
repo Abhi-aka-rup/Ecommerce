@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Products.Infrastructure
+namespace ProductsAPI.Infrastructure
 {
     public static class DependencyInjection
     {

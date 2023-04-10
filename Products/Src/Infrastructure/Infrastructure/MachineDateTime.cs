@@ -1,6 +1,6 @@
 ﻿using Common.Interfaces;
 
-namespace Products.Infrastructure
+namespace ProductsAPI.Infrastructure
 {
     public class MachineDateTime : IDateTime
     {

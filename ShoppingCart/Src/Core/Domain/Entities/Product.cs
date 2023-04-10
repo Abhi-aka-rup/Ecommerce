@@ -1,6 +1,6 @@
 ﻿using Common.Domain;
 
-namespace ShoppingCart.Domain.Entities
+namespace ShoppingCartAPI.Domain.Entities
 {
     public class Product : AuditableEntity
     {

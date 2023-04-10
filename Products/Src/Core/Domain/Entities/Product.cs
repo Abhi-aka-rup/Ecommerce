@@ -1,6 +1,6 @@
 ﻿using Common.Domain;
 
-namespace Products.Domain.Entities
+namespace ProductsAPI.Domain.Entities
 {
     public class Product : AuditableEntity
     {
