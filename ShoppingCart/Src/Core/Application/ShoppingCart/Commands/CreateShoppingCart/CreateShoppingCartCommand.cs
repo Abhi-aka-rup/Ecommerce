@@ -1,6 +1,9 @@
-﻿namespace ShoppingCartAPI.Application.ShoppingCart.Commands.CreateShoppingCart
+﻿using MediatR;
+
+namespace ShoppingCartAPI.Application.ShoppingCart.Commands.CreateShoppingCart
 {
-    public class CreateShoppingCartCommand
+    public class CreateShoppingCartCommand : IRequest<int>
     {
+        public int Count { get; set; }
     }
 }
