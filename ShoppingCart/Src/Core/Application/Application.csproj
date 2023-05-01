@@ -19,10 +19,4 @@
     <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ShoppingCart\Commands\DeleteShoppingCart\" />
-    <Folder Include="ShoppingCart\Commands\UpdateShoppingCart\" />
-    <Folder Include="ShoppingCart\Queries\GetShoppingCartDetail\" />
-  </ItemGroup>
-
 </Project>
