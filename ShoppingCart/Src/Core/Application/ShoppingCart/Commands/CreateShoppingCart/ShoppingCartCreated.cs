@@ -7,8 +7,6 @@ namespace Application.ShoppingCart.Commands.CreateShoppingCart
     {
         public int CartDetailsId { get; set; }
 
-        public int ProductId { get; set; }
-
         public class ShoppingCartCreatedHandler : INotificationHandler<ShoppingCartCreated>
         {
             private readonly INotificationService _notificationService;

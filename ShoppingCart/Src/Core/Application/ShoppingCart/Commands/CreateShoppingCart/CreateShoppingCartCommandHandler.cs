@@ -18,27 +18,16 @@ namespace Application.ShoppingCart.Commands.CreateShoppingCart
 
         public async Task<int> Handle(CreateShoppingCartCommand request, CancellationToken cancellationToken)
         {
-            int cartId = HandleCartDetails(request);
-            int productId = await HandleProductDetailsAsync(request);
+            int cartId = await HandleShoppingCartDetailsAsync(request);
 
             await _context.SaveChangesAsync(cancellationToken);
 
-            await _mediator.Publish(new ShoppingCartCreated() { CartDetailsId = cartId, ProductId = productId }, cancellationToken);
+            await _mediator.Publish(new ShoppingCartCreated() { CartDetailsId = cartId }, cancellationToken);
 
             return cartId;
         }
 
-        private int HandleCartDetails(CreateShoppingCartCommand request)
-        {
-            var cartDetails = new CartDetails()
-            {
-                Count = request.Count
-            };
-            _context.CartDetails.Add(cartDetails);
-            return cartDetails.CartDetailsId;
-        }
-
-        private async Task<int> HandleProductDetailsAsync(CreateShoppingCartCommand request)
+        private async Task<int> HandleShoppingCartDetailsAsync(CreateShoppingCartCommand request)
         {
             var product = await _context.Products.FindAsync(request.Product.ProductId);
             if (product == null)
@@ -53,7 +42,15 @@ namespace Application.ShoppingCart.Commands.CreateShoppingCart
                 };
                 _context.Products.Add(product);
             }
-            return product.ProductId;
+            var cartDetails = new CartDetails()
+            {
+                Count = request.Count,
+                Product = product
+            };
+            _context.CartDetails.Add(cartDetails);
+
+
+            return cartDetails.CartDetailsId;
         }
     }
 }
