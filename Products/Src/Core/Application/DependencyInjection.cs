@@ -1,4 +1,5 @@
 ﻿using Common.Behaviours;
+using Ecommerce.MessageBus;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
@@ -16,6 +17,7 @@ namespace ProductsAPI.Application
             });
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerformanceBehaviour<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
+            services.AddSingleton<IMessageBus, AzureServiceBusMessageBus>();
 
             return services;
         }

@@ -3,6 +3,7 @@ using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Ecommerce.MessageBus;
 
 namespace ProductsAPI.Application.Products.Queries.GetProductList
 {
@@ -10,11 +11,13 @@ namespace ProductsAPI.Application.Products.Queries.GetProductList
     {
         private readonly IProductDbContext _context;
         private readonly IMapper _mapper;
+        private readonly IMessageBus _messageBus;
 
-        public GetProductListQueryHandler(IProductDbContext productDbContext, IMapper mapper)
+        public GetProductListQueryHandler(IProductDbContext productDbContext, IMapper mapper, IMessageBus messageBus)
         {
             _context = productDbContext;
             _mapper = mapper;
+            _messageBus = messageBus;
         }
 
         public async Task<ProductsListVm> Handle(GetProductListQuery request, CancellationToken cancellationToken)
@@ -29,6 +32,7 @@ namespace ProductsAPI.Application.Products.Queries.GetProductList
                 Products = products
             };
 
+            await _messageBus.PublishMessage(vm, "checkoutmessagetopic");
             return vm;
         }
     }

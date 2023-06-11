@@ -1,6 +1,8 @@
-﻿namespace Application.ShoppingCart.Queries.GetShoppingCartList
+﻿using Ecommerce.MessageBus;
+
+namespace Application.ShoppingCart.Queries.GetShoppingCartList
 {
-    public class ShoppingCartListVm
+    public class ShoppingCartListVm : BaseMessage
     {
         public IList<ShoppingCartDto> CartList { get; set; }
     }

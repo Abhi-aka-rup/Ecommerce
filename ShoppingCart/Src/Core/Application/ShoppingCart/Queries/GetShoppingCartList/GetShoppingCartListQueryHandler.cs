@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using Ecommerce.MessageBus;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using ShoppingCartAPI.Application.Common.Interfaces;
@@ -10,11 +11,13 @@ namespace Application.ShoppingCart.Queries.GetShoppingCartList
     {
         private readonly IShoppingCartDbContext _context;
         private readonly IMapper _mapper;
+        private readonly IMessageBus _messageBus;
 
-        public GetShoppingCartListQueryHandler(IShoppingCartDbContext context, IMapper mapper)
+        public GetShoppingCartListQueryHandler(IShoppingCartDbContext context, IMapper mapper, IMessageBus messageBus)
         {
             _context = context;
             _mapper = mapper;
+            _messageBus = messageBus;
         }
 
         public async Task<ShoppingCartListVm> Handle(GetShoppingCartListQuery request, CancellationToken cancellationToken)
@@ -28,7 +31,7 @@ namespace Application.ShoppingCart.Queries.GetShoppingCartList
             {
                 CartList = cartList
             };
-
+            await _messageBus.PublishMessage(vm, "checkoutmessagetopic");
             return vm;
         }
     }
