@@ -1,7 +1,8 @@
 ﻿using Common.Interfaces;
 using MediatR;
+using Notifications = Common.Notifications;
 
-namespace Application.ShoppingCart.Commands.CreateShoppingCart
+namespace ShoppingCartAPI.Application.ShoppingCart.Commands.CreateShoppingCart
 {
     public class ShoppingCartCreated : INotification
     {
@@ -18,7 +19,7 @@ namespace Application.ShoppingCart.Commands.CreateShoppingCart
 
             public Task Handle(ShoppingCartCreated notification, CancellationToken cancellationToken)
             {
-                return _notificationService.SendAsync(new Common.Notifications.Models.MessageDto());
+                return _notificationService.SendAsync(new Notifications.Models.MessageDto());
             }
         }
     }

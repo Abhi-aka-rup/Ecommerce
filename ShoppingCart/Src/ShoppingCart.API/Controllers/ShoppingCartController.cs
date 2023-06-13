@@ -1,6 +1,6 @@
-﻿using Application.ShoppingCart.Queries.GetShoppingCartList;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using ShoppingCartAPI.Application.ShoppingCart.Commands.CreateShoppingCart;
+using ShoppingCartAPI.Application.ShoppingCart.Queries.GetShoppingCartList;
 
 namespace ShoppingCart.API.Controllers
 {

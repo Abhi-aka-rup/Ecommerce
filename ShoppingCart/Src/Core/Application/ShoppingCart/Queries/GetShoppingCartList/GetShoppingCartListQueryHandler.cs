@@ -5,7 +5,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using ShoppingCartAPI.Application.Common.Interfaces;
 
-namespace Application.ShoppingCart.Queries.GetShoppingCartList
+namespace ShoppingCartAPI.Application.ShoppingCart.Queries.GetShoppingCartList
 {
     public class GetShoppingCartListQueryHandler : IRequestHandler<GetShoppingCartListQuery, ShoppingCartListVm>
     {

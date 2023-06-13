@@ -2,7 +2,7 @@
 using Common.Mappings;
 using ShoppingCartAPI.Domain.Entities;
 
-namespace Application.ShoppingCart.Queries.GetShoppingCartDetail
+namespace ShoppingCartAPI.Application.ShoppingCart.Queries.GetShoppingCartDetail
 {
     public class ShoppingCartVm : IMapFrom<CartDetails>
     {

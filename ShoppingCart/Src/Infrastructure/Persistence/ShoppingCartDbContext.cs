@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using ShoppingCartAPI.Application.Common.Interfaces;
 using ShoppingCartAPI.Domain.Entities;
 
-namespace Persistence
+namespace ShoppingCartAPI.Persistence
 {
     public class ShoppingCartDbContext : DbContext, IShoppingCartDbContext
     {
@@ -21,7 +21,6 @@ namespace Persistence
         {
         }
 
-        public DbSet<Product> Products { get; set; }
         public DbSet<CartDetails> CartDetails { get; set; }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())

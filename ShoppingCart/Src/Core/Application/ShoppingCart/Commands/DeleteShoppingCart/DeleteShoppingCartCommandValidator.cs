@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace Application.ShoppingCart.Commands.DeleteShoppingCart
+namespace ShoppingCartAPI.Application.ShoppingCart.Commands.DeleteShoppingCart
 {
     public class DeleteShoppingCartCommandValidator : AbstractValidator<DeleteShoppingCartCommand>
     {

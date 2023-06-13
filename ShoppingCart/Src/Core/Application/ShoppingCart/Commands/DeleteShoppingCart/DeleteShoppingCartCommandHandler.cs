@@ -3,7 +3,7 @@ using MediatR;
 using ShoppingCartAPI.Application.Common.Interfaces;
 using ShoppingCartAPI.Domain.Entities;
 
-namespace Application.ShoppingCart.Commands.DeleteShoppingCart
+namespace ShoppingCartAPI.Application.ShoppingCart.Commands.DeleteShoppingCart
 {
     public class DeleteShoppingCartCommandHandler : IRequestHandler<DeleteShoppingCartCommand, Unit>
     {

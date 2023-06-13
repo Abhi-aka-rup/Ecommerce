@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ShoppingCartAPI.Persistence;
 
-namespace Persistence
+namespace ShoppingCartAPI.Persistence
 {
     public class ShoppingCartDbContextFactory : DesignTimeDbContextFactoryBase<ShoppingCartDbContext>
     {

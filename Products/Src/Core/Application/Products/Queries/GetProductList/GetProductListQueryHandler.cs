@@ -32,7 +32,7 @@ namespace ProductsAPI.Application.Products.Queries.GetProductList
                 Products = products
             };
 
-            await _messageBus.PublishMessage(vm, "checkoutmessagetopic");
+            //await _messageBus.PublishMessage(vm, "checkoutmessagetopic");
             return vm;
         }
     }

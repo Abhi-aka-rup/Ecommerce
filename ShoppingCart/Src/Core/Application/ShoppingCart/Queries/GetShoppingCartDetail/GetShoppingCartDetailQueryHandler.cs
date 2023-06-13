@@ -4,7 +4,7 @@ using MediatR;
 using ShoppingCartAPI.Application.Common.Interfaces;
 using ShoppingCartAPI.Domain.Entities;
 
-namespace Application.ShoppingCart.Queries.GetShoppingCartDetail
+namespace ShoppingCartAPI.Application.ShoppingCart.Queries.GetShoppingCartDetail
 {
     public class GetShoppingCartDetailQueryHandler : IRequestHandler<GetShoppingCartDetailQuery, ShoppingCartVm>
     {

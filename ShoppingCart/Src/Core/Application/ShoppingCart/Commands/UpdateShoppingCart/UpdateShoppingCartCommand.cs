@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using ShoppingCartAPI.Domain.Entities;
 
-namespace Application.ShoppingCart.Commands.UpdateShoppingCart
+namespace ShoppingCartAPI.Application.ShoppingCart.Commands.UpdateShoppingCart
 {
     public class UpdateShoppingCartCommand : IRequest<Unit>
     {

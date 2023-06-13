@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace Application.ShoppingCart.Queries.GetShoppingCartDetail
+namespace ShoppingCartAPI.Application.ShoppingCart.Queries.GetShoppingCartDetail
 {
     public class GetShoppingCartDetailQueryValidator : AbstractValidator<GetShoppingCartDetailQuery>
     {

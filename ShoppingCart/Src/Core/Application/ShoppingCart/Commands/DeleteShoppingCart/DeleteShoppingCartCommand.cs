@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace Application.ShoppingCart.Commands.DeleteShoppingCart
+namespace ShoppingCartAPI.Application.ShoppingCart.Commands.DeleteShoppingCart
 {
     public class DeleteShoppingCartCommand : IRequest<Unit>
     {

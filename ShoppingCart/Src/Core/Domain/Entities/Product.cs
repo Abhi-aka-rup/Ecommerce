@@ -2,7 +2,7 @@
 
 namespace ShoppingCartAPI.Domain.Entities
 {
-    public class Product : AuditableEntity
+    public class Product
     {
         public int ProductId { get; set; }
 

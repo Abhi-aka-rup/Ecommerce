@@ -3,7 +3,7 @@ using MediatR;
 using ShoppingCartAPI.Application.Common.Interfaces;
 using ShoppingCartAPI.Domain.Entities;
 
-namespace Application.ShoppingCart.Commands.UpdateShoppingCart
+namespace ShoppingCartAPI.Application.ShoppingCart.Commands.UpdateShoppingCart
 {
     public class UpdateShoppingCartCommandHandler : IRequestHandler<UpdateShoppingCartCommand, Unit>
     {

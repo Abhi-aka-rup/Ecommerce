@@ -1,6 +1,6 @@
 ﻿using Ecommerce.MessageBus;
 
-namespace Application.ShoppingCart.Queries.GetShoppingCartList
+namespace ShoppingCartAPI.Application.ShoppingCart.Queries.GetShoppingCartList
 {
     public class ShoppingCartListVm : BaseMessage
     {
