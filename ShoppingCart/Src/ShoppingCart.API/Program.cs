@@ -1,7 +1,6 @@
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
-using Persistence;
 using ShoppingCart.API.Common;
 using ShoppingCartAPI.Application;
 using ShoppingCartAPI.Application.Common.Interfaces;

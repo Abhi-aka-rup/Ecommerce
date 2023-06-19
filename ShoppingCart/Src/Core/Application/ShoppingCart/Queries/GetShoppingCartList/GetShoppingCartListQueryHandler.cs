@@ -31,7 +31,7 @@ namespace ShoppingCartAPI.Application.ShoppingCart.Queries.GetShoppingCartList
             {
                 CartList = cartList
             };
-            await _messageBus.PublishMessage(vm, "checkoutmessagetopic");
+            //await _messageBus.PublishMessage(vm, "checkoutmessagetopic");
             return vm;
         }
     }

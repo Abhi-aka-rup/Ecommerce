@@ -8,7 +8,7 @@ namespace ShoppingCartAPI.Application.ShoppingCart.Queries.GetShoppingCartList
     {
         public int Count { get; set; }
 
-        public Product Product { get; set; }
+        public int ProductId { get; set; }
 
         public void Mapping(Profile profile)
         {

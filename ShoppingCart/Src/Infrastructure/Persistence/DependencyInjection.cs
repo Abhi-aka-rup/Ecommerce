@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Persistence;
 using ShoppingCartAPI.Application.Common.Interfaces;
 
 namespace ShoppingCartAPI.Persistence

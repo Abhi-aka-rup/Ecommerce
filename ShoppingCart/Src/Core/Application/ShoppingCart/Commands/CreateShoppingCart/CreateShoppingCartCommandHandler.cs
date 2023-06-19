@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using ShoppingCartAPI.Application.Common.Interfaces;
 using ShoppingCartAPI.Domain.Entities;
+using System.Threading;
 
 namespace ShoppingCartAPI.Application.ShoppingCart.Commands.CreateShoppingCart
 {
@@ -19,26 +20,31 @@ namespace ShoppingCartAPI.Application.ShoppingCart.Commands.CreateShoppingCart
 
         public async Task<int> Handle(CreateShoppingCartCommand request, CancellationToken cancellationToken)
         {
-            int cartId = await HandleShoppingCartDetailsAsync(request);
+            CartDetails cartDetails = await HandleShoppingCartDetailsAsync(request);
+           
+            _context.CartDetails.Add(cartDetails);
 
             await _context.SaveChangesAsync(cancellationToken);
 
-            await _mediator.Publish(new ShoppingCartCreated() { CartDetailsId = cartId }, cancellationToken);
-
-            return cartId;
-        }
-
-        private async Task<int> HandleShoppingCartDetailsAsync(CreateShoppingCartCommand request)
-        {
-            var product = await _productApiClient.GetProductDetails(request.ProductId);
-            var cartDetails = new CartDetails()
-            {
-                Count = request.Count,
-                Product = product
-            };
-            _context.CartDetails.Add(cartDetails);
+            await _mediator.Publish(new ShoppingCartCreated() { CartDetailsId = cartDetails.CartDetailsId }, cancellationToken);
 
             return cartDetails.CartDetailsId;
+        }
+
+        private async Task<CartDetails> HandleShoppingCartDetailsAsync(CreateShoppingCartCommand request)
+        {
+            var product = await _productApiClient.GetProductDetails(request.ProductId);
+            if (product != null)
+            {
+                var cartDetails = new CartDetails()
+                {
+                    Count = request.Count,
+                    ProductId = product.ProductId
+                };
+
+                return cartDetails;
+            }
+            return null;
         }
     }
 }
