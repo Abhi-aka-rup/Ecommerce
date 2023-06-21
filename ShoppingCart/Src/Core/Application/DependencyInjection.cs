@@ -28,7 +28,8 @@ namespace ShoppingCartAPI.Application
             services.AddSingleton<AsyncCircuitBreakerPolicy<HttpResponseMessage>>(serviceProvider =>
             {
                 return Policy<HttpResponseMessage>
-                    .Handle<Exception>()
+                    .Handle<HttpRequestException>()
+                    .OrResult(response => response == null)
                     .CircuitBreakerAsync(
                         handledEventsAllowedBeforeBreaking: 3,
                         durationOfBreak: TimeSpan.FromSeconds(30),

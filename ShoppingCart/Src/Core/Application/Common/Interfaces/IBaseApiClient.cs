@@ -1,4 +1,5 @@
-﻿using Polly.CircuitBreaker;
+﻿using Microsoft.AspNetCore.Http;
+using Polly.CircuitBreaker;
 
 namespace ShoppingCartAPI.Application.Common.Interfaces
 {
@@ -6,5 +7,7 @@ namespace ShoppingCartAPI.Application.Common.Interfaces
     {
         HttpClient HttpClient { get; }
         AsyncCircuitBreakerPolicy<HttpResponseMessage> CircuitBreakerPolicy { get; }
+
+        IHttpContextAccessor HttpContextAccessor { get; }
     }
 }
