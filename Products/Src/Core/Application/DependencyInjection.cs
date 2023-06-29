@@ -2,6 +2,7 @@
 using Ecommerce.MessageBus;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using ProductsAPI.Application.Common;
 using System.Reflection;
 
 namespace ProductsAPI.Application
@@ -18,6 +19,7 @@ namespace ProductsAPI.Application
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerformanceBehaviour<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
             services.AddSingleton<IMessageBus, AzureServiceBusMessageBus>();
+            services.AddHostedService<RabbitMQConsumer>();
 
             return services;
         }

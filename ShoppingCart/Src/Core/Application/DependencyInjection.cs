@@ -6,6 +6,7 @@ using Polly;
 using Polly.CircuitBreaker;
 using ShoppingCartAPI.Application.Common;
 using ShoppingCartAPI.Application.Common.Interfaces;
+using ShoppingCartAPI.Application.RabbitMQSender;
 using System.Reflection;
 
 namespace ShoppingCartAPI.Application
@@ -25,6 +26,14 @@ namespace ShoppingCartAPI.Application
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerformanceBehaviour<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
             services.AddSingleton<IMessageBus, AzureServiceBusMessageBus>();
+            services.AddSingleton<IRabbitMQMessageSender>(provider =>
+            {
+                string hostname = "localhost";
+                string username = "guest";
+                string password = "guest";
+
+                return new RabbitMQMessageSender(hostname, username, password);
+            });
             services.AddSingleton<AsyncCircuitBreakerPolicy<HttpResponseMessage>>(serviceProvider =>
             {
                 return Policy<HttpResponseMessage>

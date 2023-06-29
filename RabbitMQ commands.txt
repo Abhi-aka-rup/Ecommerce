@@ -1,0 +1,7 @@
+RabbitMQ commands
+
+1. rabbitmq-server.bat --> Starts the RabbitMQ broker
+2. rabbitmqctl.bat start_app/stop_app --> To start/stop the RabbitMQ broker
+3. rabbitmq-plugins enable rabbitmq_management --> To enable the RabbitMQ Management plugin, which provides a web-based interface for managing and monitoring RabbitMQ.
+
+DEFAULT PORT: http://localhost:15672/
