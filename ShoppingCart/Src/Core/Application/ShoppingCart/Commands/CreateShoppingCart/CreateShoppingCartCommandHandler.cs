@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Application.RabbitMQConsumer;
+using MediatR;
 using ShoppingCartAPI.Application.Common.Interfaces;
 using ShoppingCartAPI.Application.RabbitMQSender;
 using ShoppingCartAPI.Domain.Entities;
@@ -11,13 +12,15 @@ namespace ShoppingCartAPI.Application.ShoppingCart.Commands.CreateShoppingCart
         private readonly IMediator _mediator;
         private readonly IProductApiClient _productApiClient;
         private readonly IRabbitMQMessageSender _rabbitMQMessageSender;
+        private readonly IRabbitMQMessageConsumer _rabbitMQMessageConsumer;
 
-        public CreateShoppingCartCommandHandler(IShoppingCartDbContext context, IMediator mediator, IProductApiClient productApiClient, IRabbitMQMessageSender rabbitMQMessageSender)
+        public CreateShoppingCartCommandHandler(IShoppingCartDbContext context, IMediator mediator, IProductApiClient productApiClient, IRabbitMQMessageSender rabbitMQMessageSender, IRabbitMQMessageConsumer rabbitMQMessageConsumer)
         {
             _context = context;
             _mediator = mediator;
             _productApiClient = productApiClient;
             _rabbitMQMessageSender = rabbitMQMessageSender;
+            _rabbitMQMessageConsumer = rabbitMQMessageConsumer;
         }
 
         public async Task<int> Handle(CreateShoppingCartCommand request, CancellationToken cancellationToken)
@@ -37,9 +40,9 @@ namespace ShoppingCartAPI.Application.ShoppingCart.Commands.CreateShoppingCart
         {
             //RabbitMQ
             _rabbitMQMessageSender.SendMessage(request, "getProductDetails");
+            Product product = await _rabbitMQMessageConsumer.ConsumeMessage<Product>();
 
-            var product = await _productApiClient.GetProductDetails(request.ProductId);
-            if (product != null)
+            if(!product.Equals(default(Product)))
             {
                 var cartDetails = new CartDetails()
                 {
@@ -49,6 +52,20 @@ namespace ShoppingCartAPI.Application.ShoppingCart.Commands.CreateShoppingCart
 
                 return cartDetails;
             }
+
+            // Http Client
+            //var product = await _productApiClient.GetProductDetails(request.ProductId);
+            //if (product != null)
+            //{
+            //    var cartDetails = new CartDetails()
+            //    {
+            //        Count = request.Count,
+            //        ProductId = product.ProductId
+            //    };
+
+            //    return cartDetails;
+            //}
+
             return null;
         }
     }

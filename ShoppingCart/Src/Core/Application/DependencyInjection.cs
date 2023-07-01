@@ -1,4 +1,5 @@
-﻿using Common.Behaviours;
+﻿using Application.RabbitMQConsumer;
+using Common.Behaviours;
 using Ecommerce.MessageBus;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -6,6 +7,7 @@ using Polly;
 using Polly.CircuitBreaker;
 using ShoppingCartAPI.Application.Common;
 using ShoppingCartAPI.Application.Common.Interfaces;
+using ShoppingCartAPI.Application.RabbitMQConsumer;
 using ShoppingCartAPI.Application.RabbitMQSender;
 using System.Reflection;
 
@@ -33,6 +35,14 @@ namespace ShoppingCartAPI.Application
                 string password = "guest";
 
                 return new RabbitMQMessageSender(hostname, username, password);
+            });
+            services.AddSingleton<IRabbitMQMessageConsumer>(provider =>
+            {
+                string hostname = "localhost";
+                string username = "guest";
+                string password = "guest";
+
+                return new RabbitMQMessageConsumer(hostname, username, password);
             });
             services.AddSingleton<AsyncCircuitBreakerPolicy<HttpResponseMessage>>(serviceProvider =>
             {

@@ -1,11 +1,11 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using Microsoft.EntityFrameworkCore;
+using Products.API.Common;
 using ProductsAPI.Application;
+using ProductsAPI.Application.Common.Interfaces;
 using ProductsAPI.Infrastructure;
 using ProductsAPI.Persistence;
-using FluentValidation.AspNetCore;
-using ProductsAPI.Application.Common.Interfaces;
-using FluentValidation;
-using Products.API.Common;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 

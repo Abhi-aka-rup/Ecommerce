@@ -1,10 +1,12 @@
-﻿using Microsoft.Extensions.Hosting;
+﻿using MediatR;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
 using ProductsAPI.Application.Products.Queries.GetProductDetail;
+using ProductsAPI.Application.RabbitMQSender;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;
-using System.Threading.Channels;
 
 namespace ProductsAPI.Application.Common
 {
@@ -12,8 +14,10 @@ namespace ProductsAPI.Application.Common
     {
         private IConnection _connection;
         private IModel _channel;
+        private readonly IRabbitMQMessageSender _rabbitMQMessageSender;
+        private readonly IServiceProvider _serviceProvider;
 
-        public RabbitMQConsumer()
+        public RabbitMQConsumer(IRabbitMQMessageSender rabbitMQMessageSender, IServiceProvider serviceProvider)
         {
             var factory = new ConnectionFactory
             {
@@ -25,6 +29,8 @@ namespace ProductsAPI.Application.Common
             _connection = factory.CreateConnection();
             _channel = _connection.CreateModel();
             _channel.QueueDeclare("getProductDetails", false, false, false);
+            _rabbitMQMessageSender = rabbitMQMessageSender;
+            _serviceProvider = serviceProvider;
         }
 
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
@@ -34,11 +40,13 @@ namespace ProductsAPI.Application.Common
             var consumer = new EventingBasicConsumer(_channel);
             consumer.Received += (channel, eventArgs) =>
             {
-                var x = eventArgs;
                 var content = Encoding.UTF8.GetString(eventArgs.Body.ToArray());
                 GetProductDetailQuery getProductDetailQuery = JsonConvert.DeserializeObject<GetProductDetailQuery>(content);
-                HandleMessage(getProductDetailQuery).GetAwaiter().GetResult();
-
+                using(var scope = _serviceProvider.CreateScope())
+                {
+                    var mediator = scope.ServiceProvider.GetService<IMediator>();
+                    HandleMessage(mediator, getProductDetailQuery).GetAwaiter().GetResult();
+                }
                 _channel.BasicAck(eventArgs.DeliveryTag, false);
             };
             _channel.BasicConsume("getProductDetails", false, consumer);
@@ -46,10 +54,11 @@ namespace ProductsAPI.Application.Common
             return Task.CompletedTask;
         }
 
-        private async Task HandleMessage(GetProductDetailQuery getProductDetailQuery)
+        private async Task HandleMessage(IMediator mediator, GetProductDetailQuery getProductDetailQuery)
         {
+            var product = await mediator.Send(getProductDetailQuery);
+            _rabbitMQMessageSender.SendMessage(product, "responseProductDetails");
             await Task.CompletedTask;
-            throw new NotImplementedException();
         }
     }
 }
